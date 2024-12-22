@@ -1,0 +1,18 @@
+AUTOMATED TESTING
+=================
+
+TEST GROUP: Basic Implementation
+|__ Command Sequence: NICK -> USER -> MODE -> QUIT
+
+
+MANUAL TESTING & INSTRUCTOR OBSERVATIONS
+========================================
+
+- Automated testing hangs/prematurely ended/inconclusive.
+	- unable to verify full command implementations
+	- unable to verify reply code implementations
+	- unable to vorify grammar confirmity and protocol specs
+- No evidence of communication through channels. Channel updates not broadcast to members
+- Can't verify PRIVMSG
+	- Unable to verify basic IRC functionality (direct and through channel communication)
+- In-memory data management (while functional in limited testing, will eventually fail when scaled up)

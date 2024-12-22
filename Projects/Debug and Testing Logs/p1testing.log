@@ -1,0 +1,424 @@
+Command Sequence: HELO -> HELP -> BYE
+Command Sequence Result: PASS
+
+Command Sequence: HELO -> SEARCH -> FIND -> BYE
+Command Sequence Result: PASS
+
+Command Sequence: HELO -> SEARCH -> DETAILS -> BYE
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> CHECKOUT -> RETURN -> BYE
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> LIST -> BYE
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> RECOMMEND -> GET -> BYE
+Command Sequence Result: PASS
+
+Command Sequence: HELO -> RECOMMEND -> RATE -> BYE
+Command Sequence Result: FAIL
+
+
+
+Command Sequence: HELO -> SEARCH -> FIND -> DETAILS -> BYE
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> CHECKOUT -> CHECKOUT -> RETURN -> BYE
+Command Sequence Result: 
+
+Command Sequence: HELO -> RECOMMEND -> GET -> RATE -> BYE
+Command Sequence Result: 
+
+
+
+Command Sequence: HELP -> MANAGE -> SEARCH -> HELP -> HELO -> BYE
+	Test Performed: protocol_order
+	Command Sent: HELP
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: MANAGE
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: SEARCH
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: HELP
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: protocol_order
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> SEARCH -> FIND -> HELP -> MANAGE -> HELP -> RECOMMEND -> GET -> BYE
+	Test Performed: protocol_order
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: protocol_order
+	Command Sent: SEARCH
+	Responses Expected: 210
+	Test Performed: protocol_order
+	Command Sent: FIND The Lord of the Rings: The Two Towers
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: HELP
+	Responses Expected: 200
+	Test Performed: protocol_order
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: protocol_order
+	Command Sent: HELP
+	Responses Expected: 200
+	Test Performed: protocol_order
+	Command Sent: RECOMMEND
+	Responses Expected: 230
+	Test Performed: protocol_order
+	Command Sent: GET Fantasy
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> GET -> DETAILS -> LIST -> RECOMMEND -> DETAILS -> LIST -> GET -> SEARCH -> DETAILS -> LIST -> GET -> MANAGE -> DETAILS -> LIST -> GET -> BYE
+	Test Performed: protocol_order
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: protocol_order
+	Command Sent: GET Fantasy
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: DETAILS The Lord of the Rings: The Two Towers
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: LIST
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: RECOMMEND
+	Responses Expected: 230
+	Test Performed: protocol_order
+	Command Sent: DETAILS The Lord of the Rings: The Two Towers
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: LIST
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: GET Fantasy
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: SEARCH
+	Responses Expected: 210
+	Test Performed: protocol_order
+	Command Sent: DETAILS The Lord of the Rings: The Two Towers
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: LIST
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: GET Fantasy
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: protocol_order
+	Command Sent: DETAILS The Lord of the Rings: The Two Towers
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: LIST
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: GET Fantasy
+	Responses Expected: 403
+	Test Performed: protocol_order
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> CHECKOUT -> RETURN -> LIST -> BYE
+	Test Performed: protocol_order
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: protocol_order
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: protocol_order
+	Command Sent: CHECKOUT Divergent
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: RETURN The Hunger Games
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: LIST
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> RECOMMEND -> RATE -> GET -> BYE
+	Test Performed: protocol_order
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: protocol_order
+	Command Sent: RECOMMEND
+	Responses Expected: 230
+	Test Performed: protocol_order
+	Command Sent: RATE Pride and Prejudice 4
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: GET Fantasy
+	Responses Expected: 250
+	Test Performed: protocol_order
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> RECOMMEND -> CHECKOUT -> BYE
+	Test Performed: out_of_order_sequences
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: out_of_order_sequences
+	Command Sent: RECOMMEND
+	Responses Expected: 230
+	Test Performed: out_of_order_sequences
+	Command Sent: CHECKOUT
+	Responses Expected: 403, 400
+	Test Performed: out_of_order_sequences
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> SEARCH -> RATE -> BYE
+	Test Performed: out_of_order_sequences
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: out_of_order_sequences
+	Command Sent: SEARCH
+	Responses Expected: 210
+	Test Performed: out_of_order_sequences
+	Command Sent: RATE Pride and Prejudice 1
+	Responses Expected: 403, 400
+	Test Performed: out_of_order_sequences
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> RATE -> BYE
+	Test Performed: out_of_order_sequences
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: out_of_order_sequences
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: out_of_order_sequences
+	Command Sent: RATE Pride and Prejudice 1
+	Responses Expected: 403, 400
+	Test Performed: out_of_order_sequences
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> CHECKOUT -> BYE
+	Test Performed: catalog_interaction
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: catalog_interaction
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: catalog_interaction
+	Command Sent: CHECKOUT This Book Does Not Exist
+	Responses Expected: 403
+	Test Performed: catalog_interaction
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> SEARCH -> FIND -> FIND -> FIND -> FIND -> BYE
+	Test Performed: catalog_interaction
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: catalog_interaction
+	Command Sent: SEARCH
+	Responses Expected: 210
+	Test Performed: catalog_interaction
+	Command Sent: FIND The Hitchhiker's Guide to the Galaxy
+	Responses Expected: 250
+	Test Performed: catalog_interaction
+	Command Sent: FIND Life, the Universe and Everything
+	Responses Expected: 250
+	Test Performed: catalog_interaction
+	Command Sent: FIND Curtain: Poirot's Last Case 
+	Responses Expected: 250
+	Test Performed: catalog_interaction
+	Command Sent: FIND 1984
+	Responses Expected: 250
+	Test Performed: catalog_interaction
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> RETURN -> BYE
+	Test Performed: catalog_interaction
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: catalog_interaction
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: catalog_interaction
+	Command Sent: RETURN The Hunger Games
+	Responses Expected: 404
+	Test Performed: catalog_interaction
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> RECOMMEND -> GET -> BYE
+	Test Performed: catalog_interaction
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: catalog_interaction
+	Command Sent: RECOMMEND
+	Responses Expected: 230
+	Test Performed: catalog_interaction
+	Command Sent: GET Nonexistent
+	Responses Expected: 304
+	Test Performed: catalog_interaction
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> RECOMMEND -> RATE -> BYE
+	Test Performed: catalog_interaction
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: catalog_interaction
+	Command Sent: RECOMMEND
+	Responses Expected: 230
+	Test Performed: catalog_interaction
+	Command Sent: RATE The Book Thief 5
+	Responses Expected: 404
+	Test Performed: catalog_interaction
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> RETURN -> BYE
+	Test Performed: catalog_interaction
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: catalog_interaction
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: catalog_interaction
+	Command Sent: RETURN The Book Thief
+	Responses Expected: 404
+	Test Performed: catalog_interaction
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> MANAGE -> CHECKOUT -> CHECKOUT -> CHECKOUT -> BYE
+	Test Performed: catalog_interaction
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: catalog_interaction
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: catalog_interaction
+	Command Sent: CHECKOUT Divergent
+	Responses Expected: 250
+	Test Performed: catalog_interaction
+	Command Sent: CHECKOUT Divergent
+	Responses Expected: 250
+	Test Performed: catalog_interaction
+	Command Sent: CHECKOUT Divergent
+	Responses Expected: 403
+	Test Performed: catalog_interaction
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> SEARCH -> FIND -> BYE
+	Test Performed: error_checking
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: error_checking
+	Command Sent: SEARCH
+	Responses Expected: 210
+	Test Performed: error_checking
+	Command Sent: FIND
+	Responses Expected: 400
+	Test Performed: error_checking
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> SEARCH -> MANAGE -> LIST -> BYE
+	Test Performed: error_checking
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: error_checking
+	Command Sent: SEARCH tgamage-9
+	Responses Expected: 400
+	Test Performed: error_checking
+	Command Sent: MANAGE
+	Responses Expected: 220
+	Test Performed: error_checking
+	Command Sent: LIST tgamage-9 extra_arg
+	Responses Expected: 400
+	Test Performed: error_checking
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> RECOMMEND -> RATE -> BYE
+	Test Performed: error_checking
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: error_checking
+	Command Sent: RECOMMEND
+	Responses Expected: 230
+	Test Performed: error_checking
+	Command Sent: RATE The Hitchhiker's Guide to the Galaxy FIVE
+	Responses Expected: 400
+	Test Performed: error_checking
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> NOT_IMPLEMENTED -> SEARCHH -> SEARCH -> BYE
+	Test Performed: error_checking
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: error_checking
+	Command Sent: NOT_IMPLEMENTED Divergent
+	Responses Expected: 400
+	Test Performed: error_checking
+	Command Sent: SEARCHH Divergent
+	Responses Expected: 400
+	Test Performed: error_checking
+	Command Sent: SEARCH
+	Responses Expected: 210
+	Test Performed: error_checking
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+
+Command Sequence: HELO -> SEARCH -> FIND -> BYE
+	Test Performed: error_checking
+	Command Sent: HELO tgamage-9
+	Responses Expected: 200
+	Test Performed: error_checking
+	Command Sent: SEARCH
+	Responses Expected: 210
+	Test Performed: error_checking
+	Command Sent: FIND @#jibrish!
+	Responses Expected: 404, 304
+	Test Performed: error_checking
+	Command Sent: BYE
+	Responses Expected: 200
+Command Sequence Result: FAIL
+

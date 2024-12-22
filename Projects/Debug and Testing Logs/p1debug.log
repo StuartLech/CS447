@@ -1,0 +1,36 @@
+
+____PROCESSING RESULTS______
+
+	 ------UNTAR OUTPUT------
+
+	 ------END UNTAR OUTPUT------
+
+____END______
+
+
+____CLEANUP RESULTS______
+
+	 [-] Found and deleted ./books.db ./client.conf ./server.conf
+	 [!!] Found and deleted Executables: ./client ./server
+
+____END CLEANUP______
+
+
+____COMPILATION RESULTS______
+
+make: Entering directory '/root/F24p1/Stuart_Lech'
+g++ -std=c++11 -Wall -c server.cpp
+g++ -std=c++11 -Wall -o server server.o
+g++ -std=c++11 -Wall -o client client.o
+make: Leaving directory '/root/F24p1/Stuart_Lech'
+
+____END______
+
+___INSTRUCTOR NOTES____
+
+- HELP is mode specific. 
+- DETAILS command failed on basic testing
+- CHECKOUT/RETURN commands forced the client to Exit
+- RATE doesn't work
+- Quite a few bugs to fix as seen from the above list. 
+
